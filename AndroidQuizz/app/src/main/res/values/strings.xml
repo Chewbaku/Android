@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android Quizz</string>
+
+    <string name="preferenceFileKey">fichierPreference</string>
 </resources>
