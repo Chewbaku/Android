@@ -9,5 +9,6 @@
     <string name="nbQuestionsPosees">Nombre de questions posées : </string>
     <string name="nbReponsesCorrectes">Nombre de réponses correctes : </string>
     <string name="pourcentageBonnesReponses">Pourcentage de bonnes réponses : </string>
+    <string name="boutonStart">Démarrer</string>
 
 </resources>
