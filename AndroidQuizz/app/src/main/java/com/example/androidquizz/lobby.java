@@ -19,8 +19,8 @@ public class lobby extends AppCompatActivity {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), question.class);  //Lancer l'activité DisplayVue
-                startActivity(intent);    //Afficher la vue
+                Intent intent = new Intent(lobby.this, question.class);
+                startActivity(intent);
 
             }
         });
