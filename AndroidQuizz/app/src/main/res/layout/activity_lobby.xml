@@ -6,75 +6,136 @@
     android:layout_height="match_parent"
     tools:context=".lobby">
 
-    <TextView
-        android:id="@+id/textWelcome"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="116dp"
-        android:text="@string/welcomeMessage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textNbPartiesJouees"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/nbPartiesJouees"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
-
-    <TextView
-        android:id="@+id/textNbQuestionPosees"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/nbQuestionsPosees"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStart"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNbPartiesJouees" />
+        app:layout_constraintTop_toBottomOf="@+id/textWelcome">
 
-    <TextView
-        android:id="@+id/textNbReponsesCorrectes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/nbReponsesCorrectes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNbQuestionPosees" />
+        <TextView
+            android:id="@+id/textNbPartiesJouees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Nombres de parties : "
+            android:textSize="15dp" />
 
-    <TextView
-        android:id="@+id/textPourcentageBonnesReponses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/pourcentageBonnesReponses"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNbReponsesCorrectes" />
+        <TextView
+            android:id="@+id/textNbQuestionPosees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Nombres de questions posées :"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/textNbReponsesCorrectes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Nombres de réponses correctes:"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/textPourcentageBonnesReponses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Vous avez un taux de réussites de :"
+            android:textSize="15dp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="80dp"
-        android:text="@string/boutonStart"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:padding="10dp"
+        android:text="Start quizz"
+        android:textSize="40dp"
+        android:background="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="119dp"
+        android:layout_height="183dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textWelcome">
+
+        <TextView
+            android:id="@+id/intNbPartiesJouees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="TextView"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/intNbQuestionPosees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="TextView"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/intNbReponsesCorrectes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="TextView"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/intPourcentageBonnesReponses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="TextView"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="386dp"
+        android:layout_height="139dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Bienvenue dans AndroidQuizz ! "
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
