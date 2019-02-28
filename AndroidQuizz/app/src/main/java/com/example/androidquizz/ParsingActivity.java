@@ -16,6 +16,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.Collection;
+import java.util.List;
+import java.util.Random;
 
 public class ParsingActivity extends AppCompatActivity {
 
@@ -47,12 +49,21 @@ public class ParsingActivity extends AppCompatActivity {
         @Override
         public void onResponse(String response) {
 
-            Type questionType = new TypeToken<Collection<Question>>(){}.getType();
+            Type questionType = new TypeToken<List<Question>>(){}.getType();
 
-            Collection<Question> questions = mGson.fromJson(response, questionType);
+            List<Question> questions = mGson.fromJson(response, questionType);
 
-            for (Question question : questions) {
-                question.update();
+            Question[] quizzQuestions = new Question[5];
+
+            int random = new Random().nextInt(questions.size());
+            for (int i = 0; i < 5; i++) {
+                int position = (random + i) % questions.size();
+                quizzQuestions[i] = questions.get(position);
+            }
+
+            Quizz quizz = new Quizz(quizzQuestions);
+
+            for (Question question : quizz.getQuestions()) {
                 Log.i("Json Parsing", question.toString());
             }
 
