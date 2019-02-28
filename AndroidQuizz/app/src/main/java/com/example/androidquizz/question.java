@@ -10,4 +10,10 @@ public class question extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
     }
+
+    //empêche de quitter la vue via le bouton retour
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 }
