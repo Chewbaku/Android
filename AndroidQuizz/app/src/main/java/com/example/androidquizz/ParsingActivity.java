@@ -17,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.Collection;
 
-public class MainActivity extends AppCompatActivity {
+public class ParsingActivity extends AppCompatActivity {
 
     private static final String ENDPOINT = "http://82.243.109.160/android/questions.json";
 
