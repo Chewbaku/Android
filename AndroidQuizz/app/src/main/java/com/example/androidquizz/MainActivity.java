@@ -12,15 +12,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
             Collection<Question> questions = mGson.fromJson(response, questionType);
 
             for (Question question : questions) {
-                Log.i("Questions", question.toString());
+                question.update();
+                Log.i("Json Parsing", question.toString());
             }
 
         }
@@ -66,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private final Response.ErrorListener onQuestionsError = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            Log.e("Questions", error.toString());
+            Log.e("JSON Parsing", error.toString());
         }
     };
 
