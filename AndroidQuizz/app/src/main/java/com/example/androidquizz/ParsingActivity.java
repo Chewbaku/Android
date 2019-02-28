@@ -1,6 +1,5 @@
 package com.example.androidquizz;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -18,6 +17,8 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ParsingActivity extends AppCompatActivity {
 

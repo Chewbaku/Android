@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ParsingActivity">
+        <activity android:name=".ParsingActivity"></activity>
         <activity android:name=".lobby"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".question"></activity>
+        <activity android:name=".Question"></activity>
     </application>
 
 </manifest>
