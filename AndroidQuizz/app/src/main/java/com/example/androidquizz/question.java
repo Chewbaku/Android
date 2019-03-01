@@ -64,9 +64,6 @@ public class Question {
         return this.mResponses;
     }
 
-    Timer mTimer;
-    TextView mTimerText;
-
     @Override
     public String toString() {
         return "\nQuestion{\n" +
