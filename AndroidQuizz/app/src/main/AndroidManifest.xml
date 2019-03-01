@@ -13,14 +13,15 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".ParsingActivity"></activity>
         <activity android:name=".lobby"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Question"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".QuestionActivity"></activity>
     </application>
 
 </manifest>
