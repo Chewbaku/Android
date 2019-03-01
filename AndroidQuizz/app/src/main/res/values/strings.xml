@@ -11,4 +11,8 @@
     <string name="pourcentageBonnesReponses">Pourcentage de bonnes réponses : </string>
     <string name="boutonStart">Démarrer</string>
 
+
+    //MENU
+    <string name="action_logout">Déconnexion</string>
+
 </resources>

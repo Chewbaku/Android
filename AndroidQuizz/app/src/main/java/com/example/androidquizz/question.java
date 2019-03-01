@@ -1,41 +1,82 @@
 package com.example.androidquizz;
 
-import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.TextView;
+import com.google.gson.annotations.SerializedName;
 
-public class question extends AppCompatActivity {
+import java.util.Arrays;
+
+public class Question {
+    @SerializedName("question")
+    private final String mQuestion;
+
+    @SerializedName("reponses")
+    private final String[] mResponses;
+
+    @SerializedName("reponse_correcte")
+    private final String mAnswer;
+
+    @SerializedName("theme")
+    private final String mTheme;
+
+    @SerializedName("difficulte")
+    private final String mDifficulty;
+
+    private int correctAnswer;
+    private int difficulty;
+
+    public Question(String question, String[] responses, String answer, String theme, String difficulty) {
+        mQuestion = question;
+        mResponses = responses;
+        mAnswer = answer;
+        mTheme = theme;
+        mDifficulty = difficulty;
+    }
+
+    public void update() {
+        this.correctAnswer = Integer.parseInt(this.getAnswer());
+        this.difficulty = Integer.parseInt(this.getStringDifficulty());
+    }
+
+    public String getQuestion() {
+        return this.mQuestion;
+    }
+
+    public int getCorrectAnswer() {
+        return this.correctAnswer;
+    }
+
+    public int getIntDiffuculty() {
+        return this.difficulty;
+    }
+
+    public String getAnswer() {
+        return this.mAnswer;
+    }
+
+    public String getTheme() {
+        return this.mTheme;
+    }
+
+    public String getStringDifficulty() {
+        return this.mDifficulty;
+    }
+
+    public String[] getResponses() {
+        return this.mResponses;
+    }
 
     Timer mTimer;
     TextView mTimerText;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
-
-        mTimerText = (TextView)findViewById(R.id.timer);
-        mTimer = new Timer(10000, 1000);
-        mTimer.start();
-    }
-
-    public class Timer extends CountDownTimer {
-
-        public Timer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-            int progress = (int) (millisUntilFinished/1000);
-            mTimerText.setText(String.valueOf(progress+1));
-        }
-
-        @Override
-        public void onFinish() {
-            mTimerText.setText("FIN");
-            finish();
-        }
+    public String toString() {
+        return "\nQuestion{\n" +
+                "mQuestion=" + mQuestion + '\n' +
+                "mResponses=" + Arrays.toString(mResponses) + '\n' +
+                "mAnswer=" + mAnswer + '\n' +
+                "mTheme=" + mTheme + '\n' +
+                "mDifficulty=" + mDifficulty + '\n' +
+                "correctAnswer=" + correctAnswer + '\n' +
+                "difficulty=" + difficulty + '\n' +
+                "}\n";
     }
 }
