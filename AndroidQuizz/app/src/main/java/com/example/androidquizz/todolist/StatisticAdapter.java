@@ -43,7 +43,6 @@ public class StatisticAdapter extends RecyclerView.Adapter<StatisticViewHolder> 
         viewHolder.updateWithStatistic(this.statistics.get(position), this.callback);
     }
 
-    //Item doit être remplacé par statistic
     @Override
     public int getItemCount() {
         return this.statistics.size();

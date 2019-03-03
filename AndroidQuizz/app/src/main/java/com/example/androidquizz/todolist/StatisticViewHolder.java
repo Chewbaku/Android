@@ -27,7 +27,7 @@ public class StatisticViewHolder extends RecyclerView.ViewHolder implements View
     public StatisticViewHolder(View StatisticView) {
         super(StatisticView);
         ButterKnife.bind(this, StatisticView);
-        /* ou alors à la place de butterKnife sur le tuto c'est ca :
+        /* ou alors à la place de butterKnife :
         textView1 = (TextView) StatisticView.findViewById(R.id.todolist_id);
         textView2 = (TextView) StatisticView.findViewById(R.id.todolist_nbPlayedAnswers);
         textView3 = (TextView) StatisticView.findViewById(R.id.todolist_nbGoodAnswers);
@@ -40,25 +40,7 @@ public class StatisticViewHolder extends RecyclerView.ViewHolder implements View
         this.textView2.setText(statistic.getNbPlayedAnswers());
         this.textView3.setText(statistic.getNbGoodAnswers());
 
-        //this.imageButton.setOnClickListener(this);
-        /*
-        switch (Statistics.getCategory()){
-            case 0: // TO VISIT
-                this.imageView.setBackgroundResource(R.drawable.ic_room_black_24px);
-                break;
-            case 1: // IDEAS
-                this.imageView.setBackgroundResource(R.drawable.ic_lightbulb_outline_black_24px);
-                break;
-            case 2: // RESTAURANTS
-                this.imageView.setBackgroundResource(R.drawable.ic_local_cafe_black_24px);
-                break;
-        }
-        if (item.getSelected()){
-            textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        } else {
-            textView.setPaintFlags(textView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
-        }
-        */
+
     }
 
 
