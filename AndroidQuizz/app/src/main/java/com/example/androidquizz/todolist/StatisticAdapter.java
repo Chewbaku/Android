@@ -1,6 +1,5 @@
 package com.example.androidquizz.todolist;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +32,7 @@ public class StatisticAdapter extends RecyclerView.Adapter<StatisticViewHolder> 
     public StatisticViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
+        //je crois que ici l'activité c'est pas recycler mais activity_todolist sauf que mets tout en rouge
         View view = inflater.inflate(R.layout.activity_recycler, parent, false);
 
         return new StatisticViewHolder(view);
@@ -43,6 +43,7 @@ public class StatisticAdapter extends RecyclerView.Adapter<StatisticViewHolder> 
         viewHolder.updateWithStatistic(this.statistics.get(position), this.callback);
     }
 
+    //Item doit être remplacé par statistic
     @Override
     public int getItemCount() {
         return this.statistics.size();

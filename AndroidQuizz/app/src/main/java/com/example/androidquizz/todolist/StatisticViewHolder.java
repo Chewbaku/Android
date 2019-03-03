@@ -27,6 +27,11 @@ public class StatisticViewHolder extends RecyclerView.ViewHolder implements View
     public StatisticViewHolder(View StatisticView) {
         super(StatisticView);
         ButterKnife.bind(this, StatisticView);
+        /* ou alors à la place de butterKnife sur le tuto c'est ca :
+        textView1 = (TextView) StatisticView.findViewById(R.id.todolist_id);
+        textView2 = (TextView) StatisticView.findViewById(R.id.todolist_nbPlayedAnswers);
+        textView3 = (TextView) StatisticView.findViewById(R.id.todolist_nbGoodAnswers);
+        */
     }
 
     public void updateWithStatistic(Statistics statistic, StatisticAdapter.Listener callback){
@@ -56,12 +61,12 @@ public class StatisticViewHolder extends RecyclerView.ViewHolder implements View
         */
     }
 
-    /*
+
     @Override
     public void onClick(View view) {
         StatisticAdapter.Listener callback = callbackWeakRef.get();
         if (callback != null) callback.onClickDeleteButton(getAdapterPosition());
     }
-    */
+
 
 }
