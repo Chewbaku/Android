@@ -21,7 +21,7 @@ public class lobby extends AppCompatActivity {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(lobby.this, question.class);
+                Intent intent = new Intent(lobby.this, Question.class);
                 startActivity(intent);
 
             }
