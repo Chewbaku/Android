@@ -1,18 +1,20 @@
 package com.example.androidquizz.models;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = User.class,
-        parentColumns = "id",
-        childColumns = "userId"))
+@Entity
 public class Statistics {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
+    @ColumnInfo
     private int nbPlayedAnswers;
+    @ColumnInfo
     private int nbGoodAnswers;
+    @ColumnInfo
     private long userId;
 
     public Statistics(){}
