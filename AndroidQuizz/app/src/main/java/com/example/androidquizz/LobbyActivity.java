@@ -105,7 +105,9 @@ public class LobbyActivity extends AppCompatActivity {
 
         if (id == R.id.actionLogout) {
             // Finish this activity, and go back to LoginActivity
-            finish();
+            Intent intent = new Intent(LobbyActivity.this, MainActivity.class);
+            startActivity(intent);
+            //finish();
 
             return true;
         }

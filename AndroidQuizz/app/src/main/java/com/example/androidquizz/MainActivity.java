@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(TextUtils.isEmpty(loginEditText.getText())) {
+                if ( (TextUtils.isEmpty(loginEditText.getText())) || (loginEditText.getText().length() > 20) ) {
                     return;
                 }
 

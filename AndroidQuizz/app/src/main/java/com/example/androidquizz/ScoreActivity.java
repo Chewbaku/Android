@@ -2,6 +2,7 @@ package com.example.androidquizz;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,13 +22,24 @@ public class ScoreActivity extends AppCompatActivity {
     private DatabaseHelper dbh = DatabaseHelper.getInstance();
 
 
-    //TEMPORAIRE
-    int score = 2;
+    private int mScore;
+    private String mReponse1;
+    private String mReponse2;
+    private String mReponse3;
+    private String mReponse4;
+    private String mReponse5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
+        this.mScore = getIntent().getIntExtra("Score", -1);
+
+        mReponse1 = getIntent().getStringExtra("Reponse0");
+        mReponse2 = getIntent().getStringExtra("Reponse1");
+        mReponse3 = getIntent().getStringExtra("Reponse2");
+        mReponse4 = getIntent().getStringExtra("Reponse3");
+        mReponse5 = getIntent().getStringExtra("Reponse4");
 
         executor.execute(new Runnable() {
             @Override
@@ -42,12 +54,12 @@ public class ScoreActivity extends AppCompatActivity {
                 TextView txtScoreQuestion4 = findViewById(R.id.intReponse4);
                 TextView txtScoreQuestion5 = findViewById(R.id.intReponse5);
 
-                txtScore.setText("0");
-                txtScoreQuestion1.setText("0");
-                txtScoreQuestion2.setText("0");
-                txtScoreQuestion3.setText("0");
-                txtScoreQuestion4.setText("0");
-                txtScoreQuestion5.setText("0");
+                txtScore.setText(String.valueOf(mScore));
+                txtScoreQuestion1.setText(mReponse1);
+                txtScoreQuestion2.setText(mReponse2);
+                txtScoreQuestion3.setText(mReponse3);
+                txtScoreQuestion4.setText(mReponse4);
+                txtScoreQuestion5.setText(mReponse5);
             }
         });
 
@@ -61,7 +73,7 @@ public class ScoreActivity extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareIt(score);
+                shareIt(mScore);
             }
         });
 
@@ -79,7 +91,7 @@ public class ScoreActivity extends AppCompatActivity {
     private void shareIt(int score) {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        String shareBody = "Mon score d'Android Quizz est " + score;
+        String shareBody = "Mon score d'Android Quizz est " + mScore;
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Score Android Quizz");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Partager via"));

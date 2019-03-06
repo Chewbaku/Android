@@ -20,10 +20,12 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
     private TextView timerText;
     private Question[] mQuestions;
     private int mQuestionNumber;
-    private int score = 0;
+    private int mScore = 0;
 
     private Button mAnswer1, mAnswer2, mAnswer3, mAnswer4;
     private TextView mQuestionText, mQuestionID;
+
+    private Bundle mBundle = new Bundle();
 
     private boolean mQuestionAnswered = false;
 
@@ -74,7 +76,7 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
         int answerIndex = (int) v.getTag();
 
         if (answerIndex == this.mQuestions[this.mQuestionNumber].getCorrectAnswer()) {
-            this.score++;
+            this.mScore++;
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "U stuped", Toast.LENGTH_SHORT).show();
@@ -89,10 +91,10 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
     }
 
     private void afficherQuestion(Question question) {
-        this.mAnswer1.setText(question.getResponses(1));
-        this.mAnswer2.setText(question.getResponses(2));
-        this.mAnswer3.setText(question.getResponses(3));
-        this.mAnswer4.setText(question.getResponses(4));
+        this.mAnswer1.setText(question.getReponse(0));
+        this.mAnswer2.setText(question.getReponse(1));
+        this.mAnswer3.setText(question.getReponse(2));
+        this.mAnswer4.setText(question.getReponse(3));
         this.mQuestionText.setText(question.getQuestion());
         this.mQuestionID.setText(String.valueOf(1+this.mQuestionNumber));
         if(this.timer != null) {
@@ -103,6 +105,8 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
         }
         this.timer = new Timer(10000, 1000);
         this.timer.start();
+
+        this.mBundle.putString("Reponse" + this.mQuestionNumber, question.getReponse(question.getCorrectAnswer()));
     }
 
     private void endQuizz() {
@@ -113,7 +117,8 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
             this.timer.cancel();
         }
         Intent intent = new Intent(QuizzActivity.this, ScoreActivity.class);
-        intent.putExtra("Score", this.score);
+        this.mBundle.putInt("Score", this.mScore);
+        intent.putExtras(this.mBundle);
         startActivity(intent);
     }
 
