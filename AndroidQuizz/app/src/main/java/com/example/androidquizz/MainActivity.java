@@ -3,9 +3,14 @@ package com.example.androidquizz;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.androidquizz.database.DatabaseHelper;
 import com.example.androidquizz.models.Statistics;
@@ -21,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper dbh = DatabaseHelper.getInstance();
     final Executor executor = Executors.newSingleThreadExecutor();
 
-    TextView loginEditText;
+    EditText loginEditText;
     Button loginButton;
     private User user = new User();
 
@@ -34,11 +39,14 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
 
 
-        loginButton.setEnabled(loginEditText.toString().length() != 0);
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(TextUtils.isEmpty(loginEditText.getText())) {
+                    return;
+                }
+
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
