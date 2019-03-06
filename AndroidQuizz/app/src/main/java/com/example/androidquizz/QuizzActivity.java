@@ -92,9 +92,11 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
         this.mAnswer3.setText(question.getResponses(3));
         this.mAnswer4.setText(question.getResponses(4));
         this.mQuestionText.setText(question.getQuestion());
-        this.mQuestionID.setText(String.valueOf(this.mQuestionNumber));
+        this.mQuestionID.setText(String.valueOf(1+this.mQuestionNumber));
         if(this.timer != null) {
-            this.timer.player.release();
+            if(this.timer.player!=null){
+                this.timer.player.release();
+            }
             this.timer.cancel();
         }
         this.timer = new Timer(10000, 1000);
@@ -102,12 +104,17 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
     }
 
     private void endQuizz() {
-        this.timer.player.release();
-        this.timer.cancel();
-        this.finish();
+        if(this.timer != null) {
+            if(this.timer.player!=null){
+                this.timer.player.release();
+            }
+            this.timer.cancel();
+        }
+        Intent intent = new Intent(QuizzActivity.this, ScoreActivity.class);
+        startActivity(intent);
     }
 
-//        mAnswer1.setOnClickListener(new View.OnClickListener() {
+    //        mAnswer1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                timer.player.release();

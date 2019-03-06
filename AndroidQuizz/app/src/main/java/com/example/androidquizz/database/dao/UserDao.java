@@ -14,5 +14,5 @@ public interface UserDao {
     void createUser(User user);
 
     @Query("Select * FROM User WHERE id = :userId")
-    LiveData<User> getUser(long userId);
+    User getUser(long userId);
 }
