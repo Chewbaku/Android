@@ -36,6 +36,7 @@ public class StatisticViewHolder extends RecyclerView.ViewHolder implements View
 
     public void updateWithStatistic(Statistics statistic, StatisticAdapter.Listener callback){
         this.callbackWeakRef = new WeakReference<StatisticAdapter.Listener>(callback);
+
         this.textView1.setText((int) statistic.getUserId());
         this.textView2.setText(statistic.getNbPlayedAnswers());
         this.textView3.setText(statistic.getNbGoodAnswers());
