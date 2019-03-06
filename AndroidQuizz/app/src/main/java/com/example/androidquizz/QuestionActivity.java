@@ -5,38 +5,101 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class QuestionActivity extends Activity {
 
     private Timer timer;
     private TextView timerText;
+    private Question question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
+        // Recuperation de la question en argument
+        String jsonObject = null;
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            jsonObject = extras.getString("Question");
+        }
+        this.question = new Gson().fromJson(jsonObject, Question.class);
+
+        Button answer1, answer2, answer3, answer4;
+        TextView questionText;
+        answer1 = (Button) findViewById(R.id.answer1);
+        answer2 = (Button) findViewById(R.id.answer2);
+        answer3 = (Button) findViewById(R.id.answer3);
+        answer4 = (Button) findViewById(R.id.answer4);
+        questionText = (TextView) findViewById(R.id.textQuestion);
         timerText = (TextView)findViewById(R.id.timer);
         timer = new Timer(10000, 1000);
         timer.start();
 
-        Button answer1;
-        answer1 = (Button) findViewById(R.id.answer1);
+        answer1.setText(this.question.getResponses(1));
+        answer2.setText(this.question.getResponses(2));
+        answer3.setText(this.question.getResponses(3));
+        answer4.setText(this.question.getResponses(4));
+        questionText.setText(this.question.getQuestion());
 
-        answer1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timer.player.release();
-                timer.cancel();
-                Intent intent = new Intent(QuestionActivity.this, QuestionActivity.class);
-                startActivity(intent);
-                finish();
-
-            }
-        });
+//        answer1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                timer.player.release();
+//                timer.cancel();
+//
+//                if(question.getCorrectAnswer() == 0){
+//                    question.setFindAnswer(true);
+//                }
+//                finish();
+//
+//            }
+//        });
+//        answer2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                timer.player.release();
+//                timer.cancel();
+//
+//                if(question.getCorrectAnswer() == 1){
+//                    question.setFindAnswer(true);
+//                }
+//                finish();
+//
+//            }
+//        });
+//        answer3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                timer.player.release();
+//                timer.cancel();
+//
+//                if(question.getCorrectAnswer() == 2){
+//                    question.setFindAnswer(true);
+//                }
+//                finish();
+//
+//            }
+//        });
+//        answer4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                timer.player.release();
+//                timer.cancel();
+//
+//                if(question.getCorrectAnswer() == 3){
+//                    question.setFindAnswer(true);
+//                }
+//                finish();
+//
+//            }
+//        });
     }
 
     public class Timer extends CountDownTimer {
@@ -66,4 +129,3 @@ public class QuestionActivity extends Activity {
         }
     }
 }
-

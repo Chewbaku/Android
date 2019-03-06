@@ -10,7 +10,6 @@ import android.view.View;
 import com.example.androidquizz.models.User;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
     //public RecyclerView mRecyclerView;
@@ -21,12 +20,14 @@ public class MainActivity extends AppCompatActivity {
     Button loginButton;
     private User user = new User();
 
+    TextView loginEditText;
+    Button loginButton;
+    private User user = new User();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //mRecyclerView = (RecyclerView) findViewById(R.id.);
 
         loginEditText = findViewById(R.id.loginEditText);
         loginButton = findViewById(R.id.loginButton);
@@ -40,9 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
 

@@ -27,13 +27,13 @@ public class lobby extends AppCompatActivity {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(lobby.this, QuestionActivity.class);
+                Intent intent = new Intent(lobby.this, QuizzActivity.class);
                 startActivity(intent);
 
             }
         });
     }
-    
+
     //empêche de quitter la vue via le bouton retour
     @Override
     public void onBackPressed() {
