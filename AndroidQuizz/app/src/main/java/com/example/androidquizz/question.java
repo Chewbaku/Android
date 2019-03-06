@@ -22,6 +22,7 @@ public class Question {
 
     private int correctAnswer;
     private int difficulty;
+    private boolean mFindAnswer = false;
 
     public Question(String question, String[] responses, String answer, String theme, String difficulty) {
         mQuestion = question;
@@ -60,8 +61,16 @@ public class Question {
         return this.mDifficulty;
     }
 
-    public String[] getResponses() {
-        return this.mResponses;
+    public String getResponses(int i) {
+        return this.mResponses[i-1];
+    }
+
+    public boolean getFindAnswer() {
+        return this.mFindAnswer;
+    }
+
+    public void setFindAnswer(boolean answer) {
+        this.mFindAnswer = answer;
     }
 
     @Override
