@@ -3,6 +3,7 @@ package com.example.androidquizz;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +22,11 @@ public class lobby extends AppCompatActivity {
     TextView lobbyLogin;
     final Executor executor = Executors.newSingleThreadExecutor();
     private DatabaseHelper dbh = DatabaseHelper.getInstance();
-    TextView nbPartiesJouees;
+
+    TextView txtNbPartiesJouees;
+    TextView txtNbQuestionsPosees;
+    TextView txtNbReponsesCorrectes;
+    TextView txtTauxReussite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +42,20 @@ public class lobby extends AppCompatActivity {
                 lobbyLogin = findViewById(R.id.lobbyLogin);
                 lobbyLogin.setText(user.getLogin().toString());
 
-                nbPartiesJouees = findViewById(R.id.intNbPartiesJouees);
-                nbPartiesJouees.setText(String.valueOf(statistics.getNbPlayedAnswers()));
+                txtNbPartiesJouees = findViewById(R.id.intNbPartiesJouees);
+                txtNbQuestionsPosees = findViewById(R.id.intNbQuestionPosees);
+                txtNbReponsesCorrectes = findViewById(R.id.intNbReponsesCorrectes);
+                txtTauxReussite = findViewById(R.id.intPourcentageBonnesReponses);
 
+                int nbQuestionsPosees = statistics.getNbPlayedAnswers();
+                int nbPartiesJouees = nbQuestionsPosees / 5;
+                int nbReponsesCorrectes = statistics.getNbGoodAnswers();
+                int tauxReussite = nbReponsesCorrectes/nbQuestionsPosees;
+
+                txtNbQuestionsPosees.setText(String.valueOf(nbQuestionsPosees));
+                txtNbPartiesJouees.setText(String.valueOf(nbPartiesJouees));
+                txtNbReponsesCorrectes.setText(String.valueOf(nbReponsesCorrectes));
+                txtTauxReussite.setText(String.valueOf(tauxReussite));
             }
         });
 
