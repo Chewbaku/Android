@@ -28,7 +28,7 @@ public class ScoreActivity extends AppCompatActivity {
     private void shareIt() {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        String shareBody = "Here is the share content body";
+        String shareBody = "Mon score sur Android Quizz est ";
 
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Score Android Quizz");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
