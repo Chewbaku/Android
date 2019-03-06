@@ -9,17 +9,39 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.androidquizz.database.DatabaseHelper;
+import com.example.androidquizz.models.Statistics;
+import com.example.androidquizz.models.User;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 public class lobby extends AppCompatActivity {
 
     TextView lobbyLogin;
+    final Executor executor = Executors.newSingleThreadExecutor();
+    private DatabaseHelper dbh = DatabaseHelper.getInstance();
+    TextView nbPartiesJouees;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
 
-        lobbyLogin = findViewById(R.id.lobbyLogin);
-        lobbyLogin.setText("Faut aller le chercher dans la BDD");
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                User user = dbh.getUserDao().getUser(0);
+                Statistics statistics = dbh.getStatisticsDao().getStatistics(user.getId());
+
+                lobbyLogin = findViewById(R.id.lobbyLogin);
+                lobbyLogin.setText(user.getLogin().toString());
+
+                nbPartiesJouees = findViewById(R.id.intNbPartiesJouees);
+                nbPartiesJouees.setText(String.valueOf(statistics.getNbPlayedAnswers()));
+
+            }
+        });
 
         Button buttonStart;
         buttonStart = (Button) findViewById(R.id.buttonStart);

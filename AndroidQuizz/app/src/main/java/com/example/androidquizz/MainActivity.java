@@ -7,11 +7,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
 
+import com.example.androidquizz.database.DatabaseHelper;
+import com.example.androidquizz.models.Statistics;
 import com.example.androidquizz.models.User;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private DatabaseHelper dbh = DatabaseHelper.getInstance();
+    final Executor executor = Executors.newSingleThreadExecutor();
 
     TextView loginEditText;
     Button loginButton;
@@ -28,7 +36,23 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.setLogin(loginEditText.getText().toString());
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        User user = new User();
+                        Statistics statistics = new Statistics();
+                        user.setLogin(loginEditText.getText().toString());
+                        user.setId(0);
+                        dbh.getUserDao().createUser(user);
+                        statistics.setId(0);
+                        statistics.setNbGoodAnswers(0);
+                        statistics.setNbPlayedAnswers(12);
+                        statistics.setUserId(user.getId());
+                        dbh.getStatisticsDao().insertStatistics(statistics);
+
+                    }
+                });
+
                 Intent intent = new Intent(MainActivity.this, lobby.class);
                 startActivity(intent);
 
