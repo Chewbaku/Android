@@ -10,4 +10,10 @@ public class Quizz {
     public Question[] getQuestions() {
         return mQuestions;
     }
+
+    public Question[] getmQuestions() {
+        return mQuestions;
+    }
+
+
 }
