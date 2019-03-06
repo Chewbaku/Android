@@ -49,17 +49,19 @@ public class lobby extends AppCompatActivity {
 
                 int nbQuestionsPosees = statistics.getNbPlayedAnswers();
 
+                int nbPartiesJouees = 0;
                 if(nbQuestionsPosees != 0) {
-                    int nbPartiesJouees = nbQuestionsPosees / 5;
+                    nbPartiesJouees = nbQuestionsPosees / 5;
                 } else {
-                    int nbPartieJouees = 0;
+                    nbPartiesJouees = 0;
                 }
                 int nbReponsesCorrectes = statistics.getNbGoodAnswers();
 
-                if(nbQuestionsPosees != 0 && nbQuestionsPosees != 0) {
-                    int tauxReussite = nbReponsesCorrectes / nbQuestionsPosees;
+                int tauxReussite = 0;
+                if((nbQuestionsPosees != 0) && (nbQuestionsPosees != 0) ) {
+                     tauxReussite = nbReponsesCorrectes / nbQuestionsPosees;
                 } else {
-                    int tauxReussite = 0;
+                     tauxReussite = 0;
                 }
 
                 txtNbQuestionsPosees.setText(String.valueOf(nbQuestionsPosees));

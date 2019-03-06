@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
 
 
-        //loginButton.setEnabled(loginEditText.is);
+        loginButton.setEnabled(loginEditText.toString().length() != 0);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
