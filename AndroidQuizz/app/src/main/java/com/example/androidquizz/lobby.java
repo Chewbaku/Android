@@ -7,13 +7,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class lobby extends AppCompatActivity {
+
+    TextView lobbyLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
+
+        lobbyLogin = findViewById(R.id.lobbyLogin);
+        lobbyLogin.setText("Faut aller le chercher dans la BDD");
 
         Button buttonStart;
         buttonStart = (Button) findViewById(R.id.buttonStart);
