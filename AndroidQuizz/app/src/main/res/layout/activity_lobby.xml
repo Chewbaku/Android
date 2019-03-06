@@ -69,7 +69,7 @@
         android:padding="10dp"
         android:text="Start quizz"
         android:textSize="40dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/custom_bouton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -134,7 +134,7 @@
         android:padding="10dp"
         android:text="Bienvenue dans AndroidQuizz ! "
         android:textSize="50dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/textview_entete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

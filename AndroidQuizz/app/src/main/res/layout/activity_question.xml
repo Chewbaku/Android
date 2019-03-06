@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fcf7e3"
+    android:background="#e8f0ff"
     tools:context=".QuestionActivity">
 
     <Button
@@ -15,6 +15,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:text="ANSWER1"
+        android:background="@drawable/custom_bouton_question"
         app:layout_constraintBottom_toTopOf="@+id/answer3"
         app:layout_constraintEnd_toStartOf="@+id/answer2"
         app:layout_constraintStart_toStartOf="parent" />
@@ -27,6 +28,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:text="ANSWER2"
+        android:background="@drawable/custom_bouton_question"
         app:layout_constraintBottom_toTopOf="@+id/answer4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/answer1" />
@@ -39,6 +41,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:text="ANSWER3"
+        android:background="@drawable/custom_bouton_question"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/answer4"
         app:layout_constraintStart_toStartOf="parent" />
@@ -51,6 +54,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:text="ANSWER4"
+        android:background="@drawable/custom_bouton_question"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/answer3" />
@@ -81,7 +85,7 @@
         tools:layout_editor_absoluteY="127dp"
 
         android:gravity="center"
-        android:background="#ffffff"
+        android:background="@drawable/textview_border"
         app:layout_constraintBottom_toTopOf="@+id/timer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

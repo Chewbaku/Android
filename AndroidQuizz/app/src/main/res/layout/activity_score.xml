@@ -11,7 +11,7 @@
         android:id="@+id/textFin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="#34d3b3"
         android:text="SCORE"
         android:gravity="center"
         android:textSize="50dp"
