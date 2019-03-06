@@ -16,8 +16,8 @@
         <activity android:name=".ScoreActivity"></activity>
         <activity android:name=".QuizzActivity"></activity>
         <activity android:name=".ParsingActivity"></activity>
-        <activity android:name=".lobby"></activity>
-        <activity android:name=".splashscreen">
+        <activity android:name=".LobbyActivity"></activity>
+        <activity android:name=".Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

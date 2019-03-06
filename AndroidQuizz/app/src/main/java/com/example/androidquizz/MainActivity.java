@@ -5,11 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.view.View;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.Log;
 
 import com.example.androidquizz.database.DatabaseHelper;
 import com.example.androidquizz.models.Statistics;
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                Intent intent = new Intent(MainActivity.this, lobby.class);
+                Intent intent = new Intent(MainActivity.this, LobbyActivity.class);
                 startActivity(intent);
 
             }

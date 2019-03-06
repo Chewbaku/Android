@@ -16,7 +16,7 @@ import com.example.androidquizz.models.User;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class lobby extends AppCompatActivity {
+public class LobbyActivity extends AppCompatActivity {
 
     TextView lobbyLogin;
     final Executor executor = Executors.newSingleThreadExecutor();
@@ -76,7 +76,7 @@ public class lobby extends AppCompatActivity {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(lobby.this, ParsingActivity.class);
+                Intent intent = new Intent(LobbyActivity.this, ParsingActivity.class);
                 startActivity(intent);
 
             }

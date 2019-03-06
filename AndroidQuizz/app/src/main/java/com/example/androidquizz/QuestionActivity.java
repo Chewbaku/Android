@@ -1,17 +1,15 @@
 package com.example.androidquizz;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.androidquizz.models.Question;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class QuestionActivity extends Activity {
 

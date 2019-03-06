@@ -1,4 +1,4 @@
-package com.example.androidquizz;
+package com.example.androidquizz.models;
 
 import com.google.gson.annotations.SerializedName;
 
