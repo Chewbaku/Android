@@ -22,6 +22,10 @@ public class ScoreActivity extends AppCompatActivity {
     final Executor executor = Executors.newSingleThreadExecutor();
     private DatabaseHelper dbh = DatabaseHelper.getInstance();
 
+
+    //TEMPORAIRE
+    int score = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +63,7 @@ public class ScoreActivity extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareIt();
+                shareIt(score);
             }
         });
 
@@ -74,10 +78,10 @@ public class ScoreActivity extends AppCompatActivity {
         });
     }
 
-    private void shareIt() {
+    private void shareIt(int score) {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        String shareBody = "Mon score d'Android Quizz est";
+        String shareBody = "Mon score d'Android Quizz est " + score;
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Score Android Quizz");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Partager via"));
