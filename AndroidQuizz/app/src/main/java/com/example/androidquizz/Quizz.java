@@ -1,4 +1,4 @@
-package com.example.androidquizz.models;
+package com.example.androidquizz;
 
 public class Quizz {
     private Question[] mQuestions;

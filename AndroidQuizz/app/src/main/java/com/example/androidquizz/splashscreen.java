@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class Splashscreen extends Activity {
+public class splashscreen extends Activity {
 
     private static int SPLASH_TIME_OUT = 3000;
 
@@ -18,7 +18,7 @@ public class Splashscreen extends Activity {
 
             @Override
             public void run() {
-                Intent i = new Intent(Splashscreen.this, MainActivity.class);
+                Intent i = new Intent(splashscreen.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
