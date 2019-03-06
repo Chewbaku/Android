@@ -3,73 +3,23 @@ package com.example.androidquizz;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.androidquizz.database.DatabaseHelper;
-import com.example.androidquizz.models.Statistics;
-import com.example.androidquizz.models.User;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-
 public class lobby extends AppCompatActivity {
 
     TextView lobbyLogin;
-    final Executor executor = Executors.newSingleThreadExecutor();
-    private DatabaseHelper dbh = DatabaseHelper.getInstance();
-
-    TextView txtNbPartiesJouees;
-    TextView txtNbQuestionsPosees;
-    TextView txtNbReponsesCorrectes;
-    TextView txtTauxReussite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
 
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                User user = dbh.getUserDao().getUser(0);
-                Statistics statistics = dbh.getStatisticsDao().getStatistics(user.getId());
-
-                lobbyLogin = findViewById(R.id.lobbyLogin);
-                lobbyLogin.setText(user.getLogin().toString());
-
-                txtNbPartiesJouees = findViewById(R.id.intNbPartiesJouees);
-                txtNbQuestionsPosees = findViewById(R.id.intNbQuestionPosees);
-                txtNbReponsesCorrectes = findViewById(R.id.intNbReponsesCorrectes);
-                txtTauxReussite = findViewById(R.id.intPourcentageBonnesReponses);
-
-                int nbQuestionsPosees = statistics.getNbPlayedAnswers();
-
-                int nbPartiesJouees = 0;
-                if(nbQuestionsPosees != 0) {
-                    nbPartiesJouees = nbQuestionsPosees / 5;
-                } else {
-                    nbPartiesJouees = 0;
-                }
-                int nbReponsesCorrectes = statistics.getNbGoodAnswers();
-
-                int tauxReussite = 0;
-                if((nbQuestionsPosees != 0) && (nbQuestionsPosees != 0) ) {
-                     tauxReussite = nbReponsesCorrectes / nbQuestionsPosees;
-                } else {
-                     tauxReussite = 0;
-                }
-
-                txtNbQuestionsPosees.setText(String.valueOf(nbQuestionsPosees));
-                txtNbPartiesJouees.setText(String.valueOf(nbPartiesJouees));
-                txtNbReponsesCorrectes.setText(String.valueOf(nbReponsesCorrectes));
-                txtTauxReussite.setText(String.valueOf(tauxReussite));
-            }
-        });
+        lobbyLogin = findViewById(R.id.lobbyLogin);
+        lobbyLogin.setText("Faut aller le chercher dans la BDD");
 
         Button buttonStart;
         buttonStart = (Button) findViewById(R.id.buttonStart);
@@ -77,7 +27,7 @@ public class lobby extends AppCompatActivity {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(lobby.this, QuizzActivity.class);
+                Intent intent = new Intent(lobby.this, ParsingActivity.class);
                 startActivity(intent);
 
             }
