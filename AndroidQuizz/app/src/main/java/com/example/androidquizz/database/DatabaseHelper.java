@@ -3,10 +3,7 @@ package com.example.androidquizz.database;
 import com.example.androidquizz.QuizApplication;
 import com.example.androidquizz.database.dao.StatisticsDao;
 import com.example.androidquizz.database.dao.UserDao;
-import com.example.androidquizz.database.UserDatabase;
-import com.example.androidquizz.lobby;
 
-import androidx.fragment.app.FragmentActivity;
 import androidx.room.Room;
 
 public class DatabaseHelper {

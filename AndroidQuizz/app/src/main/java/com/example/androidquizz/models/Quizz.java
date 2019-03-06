@@ -1,4 +1,6 @@
-package com.example.androidquizz;
+package com.example.androidquizz.models;
+
+import com.example.androidquizz.models.Question;
 
 public class Quizz {
     private Question[] mQuestions;

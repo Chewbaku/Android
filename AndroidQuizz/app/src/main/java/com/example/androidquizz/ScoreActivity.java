@@ -10,8 +10,6 @@ import com.example.androidquizz.database.DatabaseHelper;
 import com.example.androidquizz.models.Statistics;
 import com.example.androidquizz.models.User;
 
-import org.w3c.dom.Text;
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -71,7 +69,7 @@ public class ScoreActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScoreActivity.this, lobby.class);
+                Intent intent = new Intent(ScoreActivity.this, LobbyActivity.class);
                 startActivity(intent);
 
             }
