@@ -134,7 +134,8 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="Bienvenue dans AndroidQuizz ! "
-        android:textSize="50dp"
+
+        android:autoSizeTextType="uniform"
         android:background="@drawable/textview_entete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,8 +148,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="50dp"
         android:text="TextView"
         android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
