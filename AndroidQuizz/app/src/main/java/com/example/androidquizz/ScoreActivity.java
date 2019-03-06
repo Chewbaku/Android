@@ -15,7 +15,19 @@ public class ScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
 
         Button back;
-        back = (Button) findViewById(R.id.back);
+        Button share;
+
+        share = findViewById(R.id.partager);
+        back = (Button) findViewById(R.id.button);
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shareIt();
+            }
+        });
+
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,5 +36,15 @@ public class ScoreActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void shareIt() {
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = "Mon score d'Android Quizz est";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Score Android Quizz");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Partager via"));
+
     }
 }

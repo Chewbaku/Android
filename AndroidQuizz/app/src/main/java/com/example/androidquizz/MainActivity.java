@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         dbh.getUserDao().createUser(user);
                         statistics.setId(0);
                         statistics.setNbGoodAnswers(0);
-                        statistics.setNbPlayedAnswers(12);
+                        statistics.setNbPlayedAnswers(0);
                         statistics.setUserId(user.getId());
                         dbh.getStatisticsDao().insertStatistics(statistics);
 
