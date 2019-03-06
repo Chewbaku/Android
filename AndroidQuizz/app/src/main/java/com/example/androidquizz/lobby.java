@@ -55,7 +55,12 @@ public class lobby extends AppCompatActivity {
                     int nbPartieJouees = 0;
                 }
                 int nbReponsesCorrectes = statistics.getNbGoodAnswers();
-                int tauxReussite = nbReponsesCorrectes/nbQuestionsPosees;
+
+                if(nbQuestionsPosees != 0 && nbQuestionsPosees != 0) {
+                    int tauxReussite = nbReponsesCorrectes / nbQuestionsPosees;
+                } else {
+                    int tauxReussite = 0;
+                }
 
                 txtNbQuestionsPosees.setText(String.valueOf(nbQuestionsPosees));
                 txtNbPartiesJouees.setText(String.valueOf(nbPartiesJouees));
