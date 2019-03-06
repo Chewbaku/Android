@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Android Quizz</string>
+
+    <string name="preferenceFileKey">fichierPreference</string>
+
+    //LOBY
+    <string name="welcomeMessage">Bienvenue sur Android Quizz</string>
+    <string name="nbPartiesJouees">Nombre de parties jouées : </string>
+    <string name="nbQuestionsPosees">Nombre de questions posées : </string>
+    <string name="nbReponsesCorrectes">Nombre de réponses correctes : </string>
+    <string name="pourcentageBonnesReponses">Pourcentage de bonnes réponses : </string>
+    <string name="boutonStart">Démarrer</string>
+
+
+    //MENU
+    <string name="action_logout">Déconnexion</string>
+
 </resources>
