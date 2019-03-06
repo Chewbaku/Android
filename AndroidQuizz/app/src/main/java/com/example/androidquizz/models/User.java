@@ -13,7 +13,9 @@ public class User {
     private String login;
     //private String password;
 
-    //Constructeur
+    //Constructeurs
+    public User(){}
+
     public User(long id, String login/*, String password*/){
         this.id = id;
         this.login = login;

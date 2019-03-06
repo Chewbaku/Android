@@ -1,5 +1,6 @@
 package com.example.androidquizz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -20,7 +21,7 @@ import java.util.Random;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ParsingActivity extends AppCompatActivity {
+public class QuizzActivity extends AppCompatActivity {
 
     private static final String ENDPOINT = "http://82.243.109.160/android/questions.json";
 
@@ -30,14 +31,12 @@ public class ParsingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         this.mGson = gsonBuilder.create();
 
         this.mRequestQueue = Volley.newRequestQueue(getApplicationContext());
-        fetchPost();
-
+        this.fetchPost();
     }
 
     private void fetchPost() {
@@ -54,19 +53,16 @@ public class ParsingActivity extends AppCompatActivity {
 
             List<Question> questions = mGson.fromJson(response, questionType);
 
-            Question[] quizzQuestions = new Question[5];
-
-            int random = new Random().nextInt(questions.size());
+            Question[] questions1 = new Question[5];
+            Random random = new Random();
             for (int i = 0; i < 5; i++) {
-                int position = (random + i) % questions.size();
-                quizzQuestions[i] = questions.get(position);
+                int position = random.nextInt(questions.size());
+                questions1[i] = questions.get(position);
+                questions1[i].update();
+                questions.remove(position);
             }
 
-            Quizz quizz = new Quizz(quizzQuestions);
-
-            for (Question question : quizz.getQuestions()) {
-                Log.i("Json Parsing", question.toString());
-            }
+            launchQuizz(questions1);
 
         }
     };
@@ -77,5 +73,16 @@ public class ParsingActivity extends AppCompatActivity {
             Log.e("JSON Parsing", error.toString());
         }
     };
+
+    private void launchQuizz(Question[] questions) {
+        for (Question question : questions) {
+            Intent intent = new Intent(QuizzActivity.this, QuestionActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("Question", new Gson().toJson(question));
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+
+    }
 
 }

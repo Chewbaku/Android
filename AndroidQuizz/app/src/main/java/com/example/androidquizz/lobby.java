@@ -7,13 +7,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class lobby extends AppCompatActivity {
+
+    TextView lobbyLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
+
+        lobbyLogin = findViewById(R.id.lobbyLogin);
+        lobbyLogin.setText("Faut aller le chercher dans la BDD");
 
         Button buttonStart;
         buttonStart = (Button) findViewById(R.id.buttonStart);
@@ -21,7 +27,7 @@ public class lobby extends AppCompatActivity {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(lobby.this, QuestionActivity.class);
+                Intent intent = new Intent(lobby.this, QuizzActivity.class);
                 startActivity(intent);
 
             }

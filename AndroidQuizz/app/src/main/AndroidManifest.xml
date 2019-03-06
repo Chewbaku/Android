@@ -13,7 +13,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppCompat.Light">
 
-        <activity android:name=".ParsingActivity"></activity>
+        <activity android:name=".QuizzActivity"></activity>
         <activity android:name=".lobby"></activity>
         <activity android:name=".splashscreen">
             <intent-filter>
