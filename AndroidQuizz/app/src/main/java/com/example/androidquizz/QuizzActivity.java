@@ -11,7 +11,23 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+
+
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
 
 
 public class QuizzActivity extends Activity implements  View.OnClickListener{
@@ -31,46 +47,19 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_question);
+        this.mRequestQueue = Volley.newRequestQueue(getApplicationContext());
 
-        this.mQuestions = new Question[5];
-        this.mQuestionNumber = 0;
-
-        // Recuperation de la question en argument
-        String jsonObject = null;
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            for (int i = 0; i < 5; i++) {
-                jsonObject = extras.getString("Question" + i);
-                this.mQuestions[i] = new Gson().fromJson(jsonObject, Question.class);
-            }
-        }
-
-        this.mAnswer1 = findViewById(R.id.answer1);
-        this.mAnswer2 = findViewById(R.id.answer2);
-        this.mAnswer3 = findViewById(R.id.answer3);
-        this.mAnswer4 = findViewById(R.id.answer4);
-
-        mAnswer1.setTag(0);
-        mAnswer2.setTag(1);
-        mAnswer3.setTag(2);
-        mAnswer4.setTag(3);
-
-        mAnswer1.setOnClickListener(this);
-        mAnswer2.setOnClickListener(this);
-        mAnswer3.setOnClickListener(this);
-        mAnswer4.setOnClickListener(this);
-
-        this.mQuestionText = (TextView) findViewById(R.id.textQuestion);
-        this.mQuestionID = (TextView) findViewById(R.id.intNumeroQuestion);
-
-        timerText = (TextView) findViewById(R.id.timer);
-
-        this.afficherQuestion(this.mQuestions[this.mQuestionNumber]);
+        this.fetchPost();
     }
 
-    @Override
-    public void onClick(View v) {
-        int answerIndex = (int) v.getTag();
+    private void fetchPost() {
+        StringRequest request = new StringRequest(Request.Method.GET,ENDPOINT, onQuestionsLoaded, onQuestionsError);
+        this.mRequestQueue.add(request);
+    }
+    
+    private final Response.Listener<String> onQuestionsLoaded = new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
 
         if (answerIndex == this.mQuestions[this.mQuestionNumber].getCorrectAnswer()) {
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
@@ -114,59 +103,7 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
         startActivity(intent);
     }
 
-    //        mAnswer1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 0){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        mAnswer2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 1){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        mAnswer3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 2){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        mAnswer4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 3){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//
+    
     //empêche de quitter la vue via le bouton retour
     @Override
     public void onBackPressed() {
@@ -185,6 +122,8 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
             player = MediaPlayer.create(QuizzActivity.this, R.raw.coundown);
             player.start();
         }
+
+    };
 
         @Override
         public void onTick(long millisUntilFinished) {

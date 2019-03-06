@@ -34,10 +34,12 @@ public class QuestionActivity extends Activity {
 
         Button answer1, answer2, answer3, answer4;
         TextView questionText;
+
         answer1 = (Button) findViewById(R.id.answer1);
         answer2 = (Button) findViewById(R.id.answer2);
         answer3 = (Button) findViewById(R.id.answer3);
         answer4 = (Button) findViewById(R.id.answer4);
+
         questionText = (TextView) findViewById(R.id.textQuestion);
         timerText = (TextView)findViewById(R.id.timer);
         timer = new Timer(10000, 1000);
