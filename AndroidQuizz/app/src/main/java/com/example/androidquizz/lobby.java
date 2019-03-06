@@ -33,7 +33,7 @@ public class lobby extends AppCompatActivity {
             }
         });
     }
-
+    
     //empêche de quitter la vue via le bouton retour
     @Override
     public void onBackPressed() {

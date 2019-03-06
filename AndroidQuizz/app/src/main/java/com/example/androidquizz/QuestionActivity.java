@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -48,58 +49,58 @@ public class QuestionActivity extends Activity {
         answer4.setText(this.question.getResponses(4));
         questionText.setText(this.question.getQuestion());
 
-//        answer1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 0){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        answer2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 1){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        answer3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 2){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        answer4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 3){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
+        answer1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.player.release();
+                timer.cancel();
+
+                if(question.getCorrectAnswer() == 0){
+                    question.setFindAnswer(true);
+                }
+                finish();
+
+            }
+        });
+        answer2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.player.release();
+                timer.cancel();
+
+                if(question.getCorrectAnswer() == 1){
+                    question.setFindAnswer(true);
+                }
+                finish();
+
+            }
+        });
+        answer3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.player.release();
+                timer.cancel();
+
+                if(question.getCorrectAnswer() == 2){
+                    question.setFindAnswer(true);
+                }
+                finish();
+
+            }
+        });
+        answer4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.player.release();
+                timer.cancel();
+
+                if(question.getCorrectAnswer() == 3){
+                    question.setFindAnswer(true);
+                }
+                finish();
+
+            }
+        });
     }
 
     public class Timer extends CountDownTimer {
@@ -129,3 +130,4 @@ public class QuestionActivity extends Activity {
         }
     }
 }
+

@@ -12,13 +12,6 @@ import com.example.androidquizz.models.User;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    //public RecyclerView mRecyclerView;
-    //public List<User> mUser;
-
-
-    TextView loginEditText;
-    Button loginButton;
-    private User user = new User();
 
     TextView loginEditText;
     Button loginButton;

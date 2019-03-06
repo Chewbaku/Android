@@ -18,21 +18,12 @@ android {
     }
 }
 
-def BUTTER_KNIFE_VERSION="8.5.1" //current version of butterknife
-
-
 dependencies {
-
-
-    compile "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION"
-
-
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.0.0-alpha02'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+
 
     def room_version = "2.1.0-alpha04"
 
