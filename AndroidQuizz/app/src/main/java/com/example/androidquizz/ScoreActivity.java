@@ -60,6 +60,13 @@ public class ScoreActivity extends AppCompatActivity {
                 txtScoreQuestion3.setText(mReponse3);
                 txtScoreQuestion4.setText(mReponse4);
                 txtScoreQuestion5.setText(mReponse5);
+
+                user.setLogin(user.getLogin());
+                user.setId(user.getId());
+                user.setNbGoodAnswers(user.getNbGoodAnswers()+ mScore);
+                user.setNbPlayedAnswers(user.getNbPlayedAnswers()+5);
+                dbh.getUserDao().createUser(user);
+
             }
         });
 

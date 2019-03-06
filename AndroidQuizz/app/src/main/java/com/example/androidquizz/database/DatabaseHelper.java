@@ -28,7 +28,7 @@ public class DatabaseHelper {
     }
 
     public DatabaseHelper(){
-        this.userDatabase = Room.databaseBuilder(QuizApplication.getContext(), UserDatabase.class,"users").build();
+        this.userDatabase = Room.databaseBuilder(QuizApplication.getContext(), UserDatabase.class,"users").fallbackToDestructiveMigration().build();
         this.statisticsDatabase = Room.databaseBuilder(QuizApplication.getContext(), StatisticsDatabase.class,"statistics").build();
     }
 }

@@ -36,7 +36,6 @@ public class LobbyActivity extends AppCompatActivity {
             @Override
             public void run() {
                 User user = dbh.getUserDao().getUser(0);
-                Statistics statistics = dbh.getStatisticsDao().getStatistics(user.getId());
 
                 lobbyLogin = findViewById(R.id.lobbyLogin);
                 lobbyLogin.setText(user.getLogin().toString());
@@ -46,7 +45,7 @@ public class LobbyActivity extends AppCompatActivity {
                 txtNbReponsesCorrectes = findViewById(R.id.intNbReponsesCorrectes);
                 txtTauxReussite = findViewById(R.id.intPourcentageBonnesReponses);
 
-                int nbQuestionsPosees = statistics.getNbPlayedAnswers();
+                int nbQuestionsPosees = user.getNbPlayedAnswers();
 
                 int nbPartiesJouees = 0;
                 if(nbQuestionsPosees != 0) {
@@ -54,7 +53,7 @@ public class LobbyActivity extends AppCompatActivity {
                 } else {
                     nbPartiesJouees = 0;
                 }
-                int nbReponsesCorrectes = statistics.getNbGoodAnswers();
+                int nbReponsesCorrectes = user.getNbGoodAnswers();
 
                 int tauxReussite = 0;
                 if((nbQuestionsPosees != 0) && (nbQuestionsPosees != 0) ) {

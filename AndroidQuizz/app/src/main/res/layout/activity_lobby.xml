@@ -135,7 +135,7 @@
         android:padding="10dp"
         android:text="Bienvenue dans AndroidQuizz ! "
 
-        android:autoSizeTextType="uniform"
+        android:textSize="50dp"
         android:background="@drawable/textview_entete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

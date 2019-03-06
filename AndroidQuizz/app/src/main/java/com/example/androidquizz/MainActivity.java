@@ -46,15 +46,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         User user = new User();
-                        Statistics statistics = new Statistics();
                         user.setLogin(loginEditText.getText().toString());
                         user.setId(0);
+                        user.setNbGoodAnswers(0);
+                        user.setNbPlayedAnswers(0);
                         dbh.getUserDao().createUser(user);
-                        statistics.setId(0);
-                        statistics.setNbGoodAnswers(0);
-                        statistics.setNbPlayedAnswers(0);
-                        statistics.setUserId(user.getId());
-                        dbh.getStatisticsDao().insertStatistics(statistics);
 
                     }
                 });
