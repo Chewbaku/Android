@@ -103,6 +103,14 @@ public class QuestionActivity extends Activity {
         });
     }
 
+    //empêche de quitter la vue via le bouton retour
+    @Override
+    public void onBackPressed() {
+        return;
+    }
+
+
+
     public class Timer extends CountDownTimer {
 
         private MediaPlayer player;
