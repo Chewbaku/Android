@@ -19,7 +19,8 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
     private Timer timer;
     private TextView timerText;
     private Question[] mQuestions;
-    private  int mQuestionNumber;
+    private int mQuestionNumber;
+    private int score = 0;
 
     private Button mAnswer1, mAnswer2, mAnswer3, mAnswer4;
     private TextView mQuestionText, mQuestionID;
@@ -73,6 +74,7 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
         int answerIndex = (int) v.getTag();
 
         if (answerIndex == this.mQuestions[this.mQuestionNumber].getCorrectAnswer()) {
+            this.score++;
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "U stuped", Toast.LENGTH_SHORT).show();
@@ -111,68 +113,15 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
             this.timer.cancel();
         }
         Intent intent = new Intent(QuizzActivity.this, ScoreActivity.class);
+        intent.putExtra("Score", this.score);
         startActivity(intent);
     }
 
-    //        mAnswer1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 0){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        mAnswer2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 1){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        mAnswer3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 2){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//        mAnswer4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                timer.player.release();
-//                timer.cancel();
-//
-//                if(question.getCorrectAnswer() == 3){
-//                    question.setFindAnswer(true);
-//                }
-//                finish();
-//
-//            }
-//        });
-//
     //empêche de quitter la vue via le bouton retour
     @Override
     public void onBackPressed() {
         return;
     }
-
 
 
     public class Timer extends CountDownTimer {
