@@ -81,8 +81,14 @@ public class QuizzActivity extends AppCompatActivity {
             bundle.putSerializable("Question", new Gson().toJson(question));
             intent.putExtras(bundle);
             startActivity(intent);
-        }
 
+        }
+        this.stopQuizz(questions);
+    }
+
+    private void stopQuizz(Question[] questions){
+        Intent intent = new Intent(QuizzActivity.this, ScoreActivity.class);
+        startActivity(intent);
     }
 
 }
