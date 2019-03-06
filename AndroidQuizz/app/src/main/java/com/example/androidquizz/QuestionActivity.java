@@ -1,17 +1,15 @@
 package com.example.androidquizz;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.androidquizz.models.Question;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class QuestionActivity extends Activity {
 
@@ -34,10 +32,12 @@ public class QuestionActivity extends Activity {
 
         Button answer1, answer2, answer3, answer4;
         TextView questionText;
+
         answer1 = (Button) findViewById(R.id.answer1);
         answer2 = (Button) findViewById(R.id.answer2);
         answer3 = (Button) findViewById(R.id.answer3);
         answer4 = (Button) findViewById(R.id.answer4);
+
         questionText = (TextView) findViewById(R.id.textQuestion);
         timerText = (TextView)findViewById(R.id.timer);
         timer = new Timer(10000, 1000);

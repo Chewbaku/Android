@@ -15,13 +15,13 @@ import androidx.room.Update;
 public interface StatisticsDao {
 
     @Query("SELECT * FROM Statistics WHERE userId = :userId")
-    LiveData<List<Statistics>> getItems(long userId);
+    Statistics getStatistics(long userId);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertStatistics(Statistics statistics);
 
     @Update
-    int update(Statistics statistics);
+    int updateStatistics(Statistics statistics);
 
     @Query("DELETE FROM Statistics Where id = :statisticsId")
     int deleteStatisctics(long statisticsId);
