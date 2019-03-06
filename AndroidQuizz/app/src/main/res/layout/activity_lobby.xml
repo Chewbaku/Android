@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e8f0ff"
     tools:context=".lobby">
 
     <LinearLayout
@@ -69,7 +70,7 @@
         android:padding="10dp"
         android:text="Start quizz"
         android:textSize="40dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/custom_bouton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -126,15 +127,15 @@
     <TextView
         android:id="@+id/textWelcome"
         android:layout_width="386dp"
-        android:layout_height="139dp"
+        android:layout_height="134dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/textview_entete"
         android:gravity="center"
         android:padding="10dp"
         android:text="Bienvenue dans AndroidQuizz ! "
         android:textSize="50dp"
-        android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
