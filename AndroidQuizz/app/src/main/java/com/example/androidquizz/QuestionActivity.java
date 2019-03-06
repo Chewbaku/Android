@@ -43,10 +43,10 @@ public class QuestionActivity extends Activity {
         timer = new Timer(10000, 1000);
         timer.start();
 
-        answer1.setText(this.question.getResponses(1));
-        answer2.setText(this.question.getResponses(2));
-        answer3.setText(this.question.getResponses(3));
-        answer4.setText(this.question.getResponses(4));
+        answer1.setText(this.question.getReponse(1));
+        answer2.setText(this.question.getReponse(2));
+        answer3.setText(this.question.getReponse(3));
+        answer4.setText(this.question.getReponse(4));
         questionText.setText(this.question.getQuestion());
 
         answer1.setOnClickListener(new View.OnClickListener() {
