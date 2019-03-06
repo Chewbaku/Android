@@ -82,6 +82,7 @@ public class QuizzActivity extends AppCompatActivity {
             intent.putExtras(bundle);
             startActivity(intent);
         }
+
     }
 
 }
