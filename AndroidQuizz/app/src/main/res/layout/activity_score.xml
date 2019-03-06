@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:text="FIN"
+        android:text="SCORE"
         android:gravity="center"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/intScore">
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/intReponse1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -66,7 +66,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/intReponse2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -74,7 +74,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/intReponse3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -82,7 +82,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/intReponse4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -90,7 +90,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/intReponse5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
