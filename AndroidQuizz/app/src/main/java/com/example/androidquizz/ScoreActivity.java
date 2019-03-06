@@ -2,6 +2,7 @@ package com.example.androidquizz;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,12 +23,23 @@ public class ScoreActivity extends AppCompatActivity {
 
 
     private int mScore;
+    private String mReponse1;
+    private String mReponse2;
+    private String mReponse3;
+    private String mReponse4;
+    private String mReponse5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
         this.mScore = getIntent().getIntExtra("Score", -1);
+
+        mReponse1 = getIntent().getStringExtra("Reponse1");
+        mReponse2 = getIntent().getStringExtra("Reponse2");
+        mReponse3 = getIntent().getStringExtra("Reponse3");
+        mReponse4 = getIntent().getStringExtra("Reponse4");
+        mReponse5 = getIntent().getStringExtra("Reponse5");
 
         executor.execute(new Runnable() {
             @Override

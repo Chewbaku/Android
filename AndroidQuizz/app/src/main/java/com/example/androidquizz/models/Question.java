@@ -61,8 +61,8 @@ public class Question {
         return this.mDifficulty;
     }
 
-    public String getResponses(int i) {
-        return this.mResponses[i-1];
+    public String getReponse(int i) {
+        return this.mResponses[i];
     }
 
     public boolean getFindAnswer() {
