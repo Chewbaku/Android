@@ -15,6 +15,10 @@ public class User {
     @ColumnInfo @NonNull
     private String login;
     //private String password;
+    @ColumnInfo @NonNull
+    private int nbPlayedAnswers;
+    @ColumnInfo @NonNull
+    private int nbGoodAnswers;
 
     //Constructeurs
     public User(){}
@@ -26,6 +30,22 @@ public class User {
     }
 
     //Getters
+
+    public int getNbPlayedAnswers() {
+        return nbPlayedAnswers;
+    }
+
+    public void setNbPlayedAnswers(int nbPlayedAnswers) {
+        this.nbPlayedAnswers = nbPlayedAnswers;
+    }
+
+    public int getNbGoodAnswers() {
+        return nbGoodAnswers;
+    }
+
+    public void setNbGoodAnswers(int nbGoodAnswers) {
+        this.nbGoodAnswers = nbGoodAnswers;
+    }
 
     public long getId(){
         return id;
