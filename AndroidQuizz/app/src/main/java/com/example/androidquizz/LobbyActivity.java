@@ -55,9 +55,9 @@ public class LobbyActivity extends AppCompatActivity {
                 }
                 int nbReponsesCorrectes = user.getNbGoodAnswers();
 
-                int tauxReussite = 0;
-                if((nbQuestionsPosees != 0) && (nbQuestionsPosees != 0) ) {
-                    tauxReussite = nbReponsesCorrectes / nbQuestionsPosees;
+                float tauxReussite = 0;
+                if(nbQuestionsPosees != 0 ) {
+                    tauxReussite = (float)nbReponsesCorrectes / (float)nbQuestionsPosees;
                 } else {
                     tauxReussite = 0;
                 }
@@ -65,7 +65,7 @@ public class LobbyActivity extends AppCompatActivity {
                 txtNbQuestionsPosees.setText(String.valueOf(nbQuestionsPosees));
                 txtNbPartiesJouees.setText(String.valueOf(nbPartiesJouees));
                 txtNbReponsesCorrectes.setText(String.valueOf(nbReponsesCorrectes));
-                txtTauxReussite.setText(String.valueOf(tauxReussite));
+                txtTauxReussite.setText(String.valueOf((int)(tauxReussite*100))+"%");
             }
         });
 
