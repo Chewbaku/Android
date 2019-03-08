@@ -79,7 +79,7 @@ public class QuizzActivity extends Activity implements  View.OnClickListener{
             this.mScore++;
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "U stuped", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
         }
 
         if ((this.mQuestionNumber + 1) == 5) {

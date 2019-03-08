@@ -1,7 +1,6 @@
 package com.example.androidquizz;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,11 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.androidquizz.database.DatabaseHelper;
-import com.example.androidquizz.models.Statistics;
 import com.example.androidquizz.models.User;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class LobbyActivity extends AppCompatActivity {
 

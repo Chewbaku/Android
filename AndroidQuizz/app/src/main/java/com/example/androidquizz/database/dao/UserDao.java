@@ -2,7 +2,6 @@ package com.example.androidquizz.database.dao;
 
 import com.example.androidquizz.models.User;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;

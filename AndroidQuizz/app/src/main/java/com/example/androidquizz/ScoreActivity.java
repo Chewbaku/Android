@@ -2,7 +2,6 @@ package com.example.androidquizz;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,7 +44,6 @@ public class ScoreActivity extends AppCompatActivity {
             @Override
             public void run() {
                 User user = dbh.getUserDao().getUser(0);
-                Statistics statistics = dbh.getStatisticsDao().getStatistics(user.getId());
 
                 TextView txtScore = findViewById(R.id.intScore);
                 TextView txtScoreQuestion1 = findViewById(R.id.intReponse1);
